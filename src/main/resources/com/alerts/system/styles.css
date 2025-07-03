@@ -1,0 +1,297 @@
+/* Modern & Authoritative UI for Missing Person Alert System */
+
+/* Font */
+* {
+    -fx-font-family: 'Segoe UI', 'Roboto', 'Lato', 'Open Sans', Arial, sans-serif;
+    /* -fx-font-size: 14px; */ /* Commented out to prevent overriding specific font sizes */
+    -fx-text-fill: #2D2D2D;
+}
+
+/* Default font size for general elements */
+Label, Text, Button {
+    -fx-font-size: 14px;
+}
+
+.root, .background, .main-content {
+    -fx-background-color: #F8F8F8;
+}
+
+/* Header */
+.dashboard-header {
+    -fx-background-color: #0047AB;
+    -fx-padding: 0 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+.app-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #fff;
+    -fx-padding: 0 20 0 0;
+}
+
+/* Sidebar */
+.sidebar {
+    -fx-background-color: #E8EDEE;
+    -fx-padding: 30 0 30 0;
+    -fx-spacing: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 4, 0, 0, 1);
+}
+.sidebar-collapsed {
+    -fx-pref-width: 48px;
+    -fx-min-width: 48px;
+    -fx-max-width: 48px;
+    -fx-padding: 30 0 30 0;
+    -fx-alignment: CENTER;
+    -fx-transition: all 0.45s cubic-bezier(0.77,0,0.18,1);
+}
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #0047AB;
+    -fx-font-size: 16px;
+    -fx-font-weight: 500;
+    -fx-padding: 10 0 10 0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+    -fx-graphic-text-gap: 12px;
+    -fx-transition: all 0.45s cubic-bezier(0.77,0,0.18,1);
+}
+.nav-button:hover {
+    -fx-background-color: #F0F4F8;
+    -fx-border-color: #0047AB;
+}
+.nav-button-active {
+    -fx-background-color: #0047AB;
+    -fx-text-fill: #fff;
+    -fx-border-color: #FF7F00;
+}
+.nav-button-collapsed {
+    -fx-text-fill: #0047AB;
+    -fx-font-size: 20px;
+    -fx-padding: 10 0 10 0;
+    -fx-opacity: 1;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-alignment: CENTER;
+    -fx-graphic-text-gap: 0;
+    -fx-transition: all 0.45s cubic-bezier(0.77,0,0.18,1);
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: #fff;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 6, 0, 0, 1);
+    -fx-padding: 10;
+}
+.table-view .column-header-background {
+    -fx-background-color: #E8EDEE;
+    -fx-border-radius: 10px 10px 0 0;
+}
+.table-view .table-row-cell {
+    -fx-background-color: #fff;
+    -fx-border-color: transparent transparent #E8EDEE transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+.table-view .table-row-cell:odd {
+    -fx-background-color: #F8F8F8;
+}
+.table-view .table-row-cell:selected {
+    -fx-background-color: #D6EFFF;
+}
+.table-view .table-cell {
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 14px;
+}
+
+/* Buttons */
+.button {
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 22 8 22;
+    -fx-cursor: hand;
+    -fx-effect: none;
+    -fx-font-size: 15px;
+    -fx-border-width: 0;
+}
+.primary-button {
+    -fx-background-color: #0047AB;
+    -fx-text-fill: #fff;
+}
+.primary-button:hover {
+    -fx-background-color: #006D77;
+}
+.secondary-button {
+    -fx-background-color: #2A9D8F;
+    -fx-text-fill: #fff;
+}
+.secondary-button:hover {
+    -fx-background-color: #21867A;
+}
+.danger-button {
+    -fx-background-color: #D62828;
+    -fx-text-fill: #fff;
+}
+.danger-button:hover {
+    -fx-background-color: #B71C1C;
+}
+
+/* Notification (Snackbar/Toast) */
+.notification-snackbar, .notification-toast, .notification-box {
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-padding: 14 28 14 18;
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8, 0, 0, 2);
+    -fx-min-width: 320px;
+    -fx-max-width: 420px;
+    -fx-alignment: center;
+}
+/* Notification types */
+.notification-info {
+    -fx-background-color: #e0f7fa;
+    -fx-text-fill: #0047AB;
+    -fx-border-color: #4dd0e1;
+}
+.notification-success {
+    -fx-background-color: #e8f5e9;
+    -fx-text-fill: #2A9D8F;
+    -fx-border-color: #81c784;
+}
+.notification-warning {
+    -fx-background-color: #fffde7;
+    -fx-text-fill: #FF7F00;
+    -fx-border-color: #ffd54f;
+}
+.notification-error {
+    -fx-background-color: #ffebee;
+    -fx-text-fill: #D62828;
+    -fx-border-color: #ef5350;
+}
+
+/* Form Fields */
+.text-field, .combo-box, .date-picker, .text-area {
+    -fx-background-color: #fff;
+    -fx-border-color: #E8EDEE;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 15px;
+}
+.text-field:focused, .combo-box:focused, .date-picker:focused, .text-area:focused {
+    -fx-border-color: #0047AB;
+}
+
+/* Login page special fields for visibility */
+.login-text-field {
+    -fx-text-fill: #000000;
+    -fx-prompt-text-fill: #999999;
+    -fx-highlight-fill: #cce6ff;
+    -fx-highlight-text-fill: #000000;
+    -fx-caret-color: #000000;
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 12px 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 2, 0, 0, 1);
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.login-text-field:focused {
+    -fx-border-color: #007bff;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0,123,255,0.15), 4, 0, 0, 2);
+}
+
+.login-text-field:hover {
+    -fx-border-color: #007bff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 3, 0, 0, 1);
+}
+
+/* Ensure placeholder text is properly styled */
+.login-text-field .text-input {
+    -fx-text-fill: #000000;
+}
+
+/* Style for when text is entered */
+.login-text-field:filled {
+    -fx-text-fill: #000000;
+}
+
+/* Login page title styling */
+.login-title {
+    -fx-font-size: 32px !important;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* More specific login title override */
+VBox Label[text="Missing Person Alert System"] {
+    -fx-font-size: 40px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #333333 !important;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif !important;
+}
+
+/* Target the specific login title label by ID */
+#loginTitleLabel {
+    -fx-font-size: 40px !important;
+    -fx-font-weight: bold !important;
+    -fx-text-fill: #333333 !important;
+    -fx-font-family: 'Segoe UI', Arial, sans-serif !important;
+}
+
+/* Labels & Titles */
+.page-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0047AB;
+    -fx-padding: 0 0 18 0;
+}
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2D2D2D;
+}
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #0047AB;
+}
+
+/* Profile Avatar */
+.circle-image {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 4, 0, 0, 1);
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-border-color: #E8EDEE;
+    -fx-border-width: 2px;
+}
+
+/* Misc */
+Region {
+    -fx-background-color: transparent;
+}
+
+/* Whitespace helpers */
+VBox, HBox, GridPane {
+    -fx-spacing: 14px;
+}
+
+/* Accessibility: high contrast for important elements */
+::-fx-selection-bar {
+    -fx-background-color: #0047AB;
+}
+::-fx-selection-bar-non-focused {
+    -fx-background-color: #E8EDEE;
+} 

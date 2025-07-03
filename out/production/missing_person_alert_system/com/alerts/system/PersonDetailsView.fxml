@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alerts.system.PersonDetailsController"
+            stylesheets="@/com/alerts/system/styles.css">
+    <VBox layoutX="20.0" layoutY="20.0" prefWidth="760.0" spacing="15.0" AnchorPane.bottom="20.0" AnchorPane.left="20.0" AnchorPane.right="20.0" AnchorPane.top="20.0">
+        <Label text="Missing Person Details" styleClass="page-title">
+            <VBox.margin>
+                <Insets bottom="15.0" />
+            </VBox.margin>
+        </Label>
+
+        <GridPane hgap="15.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" /> <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ImageView fx:id="personImageView" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="4">
+                    <image>
+                        <Image url="@placeholder_profile.jpg" />
+                    </image>
+                </ImageView>
+
+                <Label text="Name:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label fx:id="nameLabel" styleClass="section-title" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Age:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label fx:id="ageLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="Gender:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="genderLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Last Seen Location:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Label fx:id="lastSeenLocationLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <Label text="Last Seen Date:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label fx:id="lastSeenDateLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <Label text="Contact Person:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <Label fx:id="contactPersonLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <Label text="Contact Number:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Label fx:id="contactNumberLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                <Label text="Description:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                <TextArea fx:id="descriptionArea" editable="false" wrapText="true" styleClass="text-area" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7" GridPane.rowSpan="2" />
+
+                <Label text="Status:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                <Label fx:id="statusLabel" styleClass="person-card-detail" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            </children>
+        </GridPane>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+            <Button onAction="#handleBackToDashboard" text="Back to Dashboard" styleClass="button, secondary-button" />
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@/com/alerts/system/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alerts.system.SettingsController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="dashboard-header" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets left="20.0" right="20.0" top="10.0" bottom="10.0"/>
+            </padding>
+            <Button fx:id="hamburgerButton" text="☰" style="-fx-font-size: 22px; -fx-background-color: transparent; -fx-text-fill: #85C1E9; -fx-cursor: hand;" onAction="#toggleSidebar" />
+            <Label text="⚙️" style="-fx-font-size: 28px; -fx-padding: 0 10 0 0;" />
+            <Label text="Settings" styleClass="app-title">
+                <HBox.margin>
+                    <Insets right="20.0" />
+                </HBox.margin>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+    <left>
+        <VBox fx:id="sidebar" prefWidth="220.0" alignment="TOP_CENTER" spacing="15.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" left="15.0" right="15.0" bottom="15.0" />
+            </padding>
+            <Button text="🕵️  Dashboard" prefWidth="180" styleClass="nav-button" onAction="#handleDashboardClick" />
+            <Button text="👤  My Profile" prefWidth="180" styleClass="nav-button" onAction="#handleProfileClick" />
+            <Button text="⚙️  Settings" prefWidth="180" styleClass="nav-button nav-button-active" />
+            <Button text="🗺️  Map" prefWidth="180" styleClass="nav-button" onAction="#handleMapClick" />
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="🔒  Logout" prefWidth="180" styleClass="nav-button" onAction="#handleLogoutClick" />
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="18.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="24.0" left="32.0" right="32.0" bottom="24.0" />
+            </padding>
+            <Label text="Settings" styleClass="page-title" />
+            <HBox spacing="12.0" alignment="CENTER_LEFT">
+                <Label text="Notifications:" styleClass="form-label" />
+                <CheckBox fx:id="infoCheckBox" text="Info" />
+                <CheckBox fx:id="successCheckBox" text="Success" />
+                <CheckBox fx:id="warningCheckBox" text="Warning" />
+                <CheckBox fx:id="errorCheckBox" text="Error" />
+            </HBox>
+            <HBox spacing="12.0" alignment="CENTER_RIGHT">
+                <Button text="Save" styleClass="button, primary-button" onAction="#handleSave" />
+                <Button text="Cancel" styleClass="button, secondary-button" onAction="#handleCancel" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane> 

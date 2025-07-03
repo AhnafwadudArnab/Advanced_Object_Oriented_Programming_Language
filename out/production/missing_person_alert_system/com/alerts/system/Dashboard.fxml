@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alerts.system.DashboardController"
+            stylesheets="@/com/alerts/system/styles.css">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="dashboard-header" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets left="20.0" right="20.0" top="10.0" bottom="10.0"/>
+            </padding>
+            <Label text="Missing Person Alert System" styleClass="app-title">
+                <HBox.margin>
+                    <Insets right="20.0" />
+                </HBox.margin>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" /> <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS" spacing="10.0">
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+            <TextField fx:id="searchField" promptText="Search by name, location..." styleClass="text-field, search-field" onAction="#handleSearch" />
+            <Button text="Search" styleClass="button, primary-button" onAction="#handleSearch" />
+        </HBox>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <HBox.margin>
+                    <Insets left="20.0" />
+                </HBox.margin>
+                <Circle radius="20.0" styleClass="circle-image" />
+                <Label text="John Doe" styleClass="section-title" />
+            </HBox>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox fx:id="sidebar" prefWidth="220.0" alignment="TOP_CENTER" spacing="15.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" left="15.0" right="15.0" bottom="15.0" />
+            </padding>
+            <Button text="Dashboard" prefWidth="180" styleClass="nav-button, nav-button-active" onAction="#handleDashboardClick" />
+            <Button text="View Alerts" prefWidth="180" styleClass="nav-button" onAction="#handleViewAlertsClick" />
+            <Button text="New Alert" prefWidth="180" styleClass="nav-button" onAction="#handleNewAlertClick" />
+            <Button text="Profile" prefWidth="180" styleClass="nav-button" onAction="#handleProfileClick" />
+            <Region VBox.vgrow="ALWAYS"/> <Button text="Logout" prefWidth="180" styleClass="nav-button" onAction="#handleLogoutClick" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="20.0" alignment="TOP_LEFT" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" left="20.0" right="20.0" bottom="20.0"/>
+            </padding>
+            <Label text="Main Dashboard Content" styleClass="page-title" />
+            <TableView fx:id="alertsTable" prefHeight="400.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn prefWidth="150.0" text="Person Name" />
+                    <TableColumn prefWidth="120.0" text="Last Seen" />
+                    <TableColumn prefWidth="200.0" text="Location" />
+                    <TableColumn prefWidth="100.0" text="Status" />
+                    <TableColumn prefWidth="150.0" text="Actions" />
+                </columns>
+            </TableView>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button text="View Details" styleClass="button, secondary-button" onAction="#onViewDetailsButtonClick" />
+                <Button text="Edit Alert" styleClass="button, secondary-button" onAction="#onEditAlertButtonClick" />
+                <Button text="Delete Alert" styleClass="button, danger-button" onAction="#onDeleteAlertButtonClick" />
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@/com/alerts/system/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alerts.system.ProfileController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="dashboard-header" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+            <Button fx:id="hamburgerButton" onAction="#toggleSidebar" style="-fx-font-size: 22px; -fx-background-color: transparent; -fx-text-fill: #85C1E9; -fx-cursor: hand;" text="☰" />
+            <Label style="-fx-font-size: 28px; -fx-padding: 0 10 0 0;" text="👤" />
+            <Label styleClass="app-title" text="My Profile">
+                <HBox.margin>
+                    <Insets right="20.0" />
+                </HBox.margin>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+    <left>
+        <VBox fx:id="sidebar" alignment="TOP_CENTER" prefWidth="220.0" spacing="15.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="20.0" />
+            </padding>
+            <Button onAction="#handleDashboardClick" prefWidth="180" styleClass="nav-button" text="🕵️  Dashboard" />
+            <Button prefWidth="180" styleClass="nav-button nav-button-active" text="👤  My Profile" />
+            <Button onAction="#handleMapClick" prefWidth="180" styleClass="nav-button" text="🗺️  Map" />
+            <Button onAction="#handleSettingsClick" prefWidth="180" styleClass="nav-button" text="⚙️  Settings" />
+            <Region VBox.vgrow="ALWAYS" />
+            <Button onAction="#handleLogoutClick" prefWidth="180" styleClass="nav-button" text="🔒  Logout" />
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="18.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+            </padding>
+            <Label styleClass="page-title" text="👤  My Profile" />
+            <ImageView fx:id="avatarImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="circle-image">
+                <image>
+                    <Image url="@/com/alerts/system/placeholder_profile.jpg" />
+                </image>
+            </ImageView>
+            <Button onAction="#handleChangeAvatar" styleClass="button, secondary-button" text="Change Avatar" />
+            <GridPane hgap="15.0" vgap="12.0">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" minWidth="100.0" />
+                    <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                </rowConstraints>
+                <children>
+                    <Label styleClass="form-label" text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="usernameField" promptText="Username" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label styleClass="form-label" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="emailField" promptText="Email" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label styleClass="form-label" text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="phoneField" promptText="Phone Number" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Label styleClass="form-label" text="New Password:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <PasswordField fx:id="newPasswordField" promptText="New Password" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <Label styleClass="form-label" text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                </children>
+            </GridPane>
+            <HBox alignment="CENTER" spacing="18.0">
+                <Button onAction="#handleSaveProfile" styleClass="button, primary-button" text="Save Changes" />
+                <Button onAction="#handleCancel" styleClass="button, secondary-button" text="Cancel" />
+            </HBox>
+            <VBox fx:id="notificationContainer" alignment="TOP_CENTER" prefWidth="350.0" spacing="5.0" />
+        </VBox>
+    </center>
+</BorderPane>
